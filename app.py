@@ -41,10 +41,10 @@ st.markdown("""
 @st.cache_resource
 def load_model():
     try:
-        model = tf.keras.models.load_model('model_best.h5', compile=False)
+        model = tf.keras.models.load_model('model.keras', compile=False)
         return model
     except Exception as e:
-        st.error(f"Error loading model_best.h5: {e}")
+        st.error(f"Error loading model.keras: {e}")
         return None
 
 model = load_model()
@@ -111,10 +111,6 @@ if uploaded_file is not None:
             st.info(description)
             st.markdown('</div>', unsafe_allow_html=True)
 
-    # Tombol reset
-    if st.button("Reset dan Unggah Ulang"):
-        st.session_state.uploader = None
-        st.rerun()
 
 # Info tambahan
 with st.expander("Informasi Penting"):
